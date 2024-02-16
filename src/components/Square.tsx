@@ -1,12 +1,14 @@
-import { useState } from "react";
+type SquareProps = {
+  value: "X" | "O" | null | number;
+  onSquareClick: () => void;
+};
 
-export default function Square() {
-  const [value, setValue] = useState<string>("");
-  const handleClick = () => {
-    setValue("X");
-  };
+export default function Square({ value, onSquareClick }: SquareProps) {
   return (
-    <button className="h-16 w-16 border" onClick={handleClick}>
+    <button
+      onClick={onSquareClick}
+      className="h-16 border flex items-center justify-center w-16"
+    >
       {value}
     </button>
   );
